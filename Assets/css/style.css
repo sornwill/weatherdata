@@ -15,6 +15,8 @@ h1 {
 h3{
     text-align: center;
     margin-bottom: 40px;
+    color: white;
+    
 }
 
 ul {
@@ -37,7 +39,9 @@ li {
 }
 
 .city-info {
-    width: 60px;
+    background-color: royalblue;
+    color: white;
+    
 }
 
 #savedbtn {
