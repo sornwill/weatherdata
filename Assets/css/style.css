@@ -28,20 +28,29 @@ li {
     margin-bottom: 40px;
 }
 
-.city-info, .searchcol, .forecast {
-    border: skyblue solid 4px;
-    border-radius: 10px;
+.city-info, .searchcol{
+    border: black solid 1px;
+  
 }
 
 .forecast {
     margin: auto;
+    padding-left: 45px;
+    padding-right: 45px;
 
 }
 
 .city-info {
-    background-color: royalblue;
+    background-color: lightslategray;
     color: white;
     
+}
+
+.card{  
+    width: 8rem;
+    margin: 20px;
+    background-color: lightslategray;
+    color: white;
 }
 
 #savedbtn {
