@@ -4,6 +4,8 @@ var searchcol = $(".searchcol");
 
 var currentDate = moment().format("MM/D/YYYY");
 
+
+
 var apiKey = "36dfa1267a90680fd8c48244e2de4540";
 
 // SEARCH FUNCTION
@@ -55,7 +57,16 @@ searchbtn.on("click", function(event){
             method: "GET"
         }).then(function(uv) {
             // console.log(uv);
-            $("#uv").text("UV Index: " + uv.value);
+           
+            $("#uvIndex").html("UV Index: " + uv.value);
+            // GREEN = FAIR, ORANGE = MODERATE, RED = SEVERE
+            if(uv.value <= 3){
+                $("#uvIndex").css("background-color", "green");
+            }else if(uv.value >=4 && uv.value <= 8){
+                $("#uvIndex").css("background-color", "orange");
+            }else{
+                $("#uvIndex").css("background-color", "red");
+            }
         });
 
     });
@@ -68,6 +79,19 @@ searchbtn.on("click", function(event){
         method: "GET"
     }).then(function(data){
         console.log(data);
+        
+        for(let i = 0; i < 6; i++){
+            var iconCode = data.list[i].weather[0].icon;
+            var iconURL = "https://openweathermap.org/img/wn/" + iconCode + ".png";
+
+            var tempF = (data.list[i].main.temp - 273.15) * 1.80 +32;
+
+
+            $(".day" + i).text(moment().add(i, 'days').format("MM/D/YY"));
+            $("#icons" + i).html("<img src='" + iconURL + "'alt='icon for weather'>");
+            $(".temp" + i).text("Temp (F): " + tempF.toFixed(2));
+            $(".humidity" + i).text("Humidity: " + data.list[i].main.humidity + "%");
+        }
     });
 
     

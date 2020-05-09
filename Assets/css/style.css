@@ -56,3 +56,9 @@ li {
 #savedbtn {
     margin: 15px;
 }
+
+#uvIndex {
+    width: 8rem;
+    border-radius: 5%;
+    padding: 3px;
+}
