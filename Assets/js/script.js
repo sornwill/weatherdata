@@ -93,7 +93,7 @@ function weatherINFO(city){
         $("#windspd").text("Wind Speeds: " + response.wind.speed + " MPH");
 
         //UV API
-        var uvURL = "http://api.openweathermap.org/data/2.5/uvi?appid="+ apiKey +"&lat=" + response.coord.lat + "&lon=" + response.coord.lon;
+        var uvURL = "https://api.openweathermap.org/data/2.5/uvi?appid="+ apiKey +"&lat=" + response.coord.lat + "&lon=" + response.coord.lon;
         // console.log(uvURL);
 
         $.ajax({
