@@ -1,16 +1,25 @@
 body {
     font-size: 18px;
     font-family: serif;
+    background-color: whitesmoke;
 }
 
-h1 {
+h1{
     text-align: center;
-    background-color: royalblue;
+    background-color:darkblue;
     padding-top: 20px;
     padding-bottom: 20px;
     color: white;
 }
 
+footer {
+    position: auto;
+    width: 100%;
+
+    text-align: center;
+    background-color: darkblue;
+    color: white;
+}
 
 h3{
     text-align: center;
@@ -28,9 +37,16 @@ li {
     margin-bottom: 40px;
 }
 
-.city-info, .searchcol{
+.city-info{
     border: black solid 1px;
-  
+}
+
+.searchcol {
+    border-top: black solid 1px;
+    border-bottom: black solid 1px;
+    border-left: black solid 1px;
+    background-color: lightslategray;
+    color: white;
 }
 
 .forecast {
@@ -53,12 +69,9 @@ li {
     color: white;
 }
 
-#savedbtn {
-    margin: 15px;
-}
-
 #uvIndex {
     width: 8rem;
     border-radius: 5%;
     padding: 3px;
 }
+
