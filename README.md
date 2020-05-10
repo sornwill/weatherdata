@@ -9,5 +9,6 @@
     https://sornwill.github.io/weatherdata/
 
 # - SCREENSHOTS
-    ![Example Image](Assets/images/example.png)
+
+![Example Image](Assets/images/example.png)
 
