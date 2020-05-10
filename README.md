@@ -2,7 +2,7 @@
 
 # - DESCRIPTION
     This site will allow you to search for a city and obtain weather information such as:
-    Temperature, git Humidity, Wind Speed, UV Index, and the information for the next
+    Temperature, Humidity, Wind Speed, UV Index, and the information for the next
     5 days. Cities previously searched will be stored and render again upon refresh. 
 
 # - LINK
