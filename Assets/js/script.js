@@ -5,8 +5,38 @@ var btnGroup = $(".btn-group-vertical");
 
 var currentDate = moment().format("MM/D/YYYY");
 var apiKey = "36dfa1267a90680fd8c48244e2de4540";
+var cityList = [];
 
 // INITIALIZE
+init();
+
+function init(){
+    var storedCity = JSON.parse(localStorage.getItem("city-list"));
+
+    if (storedCity !== null) {
+        cityList = storedCity;
+    }
+    renderCity();
+};
+
+// LOCAL STORAGE
+
+function storeCity(){
+    localStorage.setItem("city-list", JSON.stringify(cityList));
+};
+
+function renderCity(){
+    for(let i = 0; i < cityList.length; i++){
+        var city = cityList[i];
+        
+        var newbtn = $("<button>");
+
+        newbtn.attr("id", "savedbtn");
+        newbtn.attr("class", "btn btn-secondary");
+        newbtn.text(city);
+        btnGroup.prepend(newbtn);
+    };
+};
 
 // SEARCH FUNCTION
 searchbtn.on("click", function(event){
@@ -29,15 +59,17 @@ searchbtn.on("click", function(event){
 
     
     // LOCAL STORAGE
-    var savedCity = city;
-    localStorage.setItem("city-list", savedCity)
-
+    cityList.push(city);
+    
+    storeCity();
+    
     weatherINFO(city);
     daysForecastAPI(city);
-    
+});
 
-    // GETS INFO FROM OPENWEATHER
-    function weatherINFO(city){
+ // GETS INFO FROM OPENWEATHER
+   
+function weatherINFO(city){
     var queryURL = "https://api.openweathermap.org/data/2.5/weather?q="+ city + "&appid=" + apiKey;
 
     $.ajax({
@@ -84,8 +116,8 @@ searchbtn.on("click", function(event){
     });
     };   
 
-    // 5DAYFORECAST API
-    function daysForecastAPI(city){
+// 5DAYFORECAST API
+function daysForecastAPI(city){
     var daysURL = "https://api.openweathermap.org/data/2.5/forecast?q="+ city + "&appid=" + apiKey;
 
     $.ajax({
@@ -108,16 +140,12 @@ searchbtn.on("click", function(event){
         }
     });
     };
-    // GETS INFO FOR PAST CITIES
-    $(document).on("click", "#savedbtn", function() {
-        var savedbtn = $(this).text();
-        // console.log(savedbtn);
 
-        weatherINFO(savedbtn);
-        daysForecastAPI(savedbtn);
-    })
-    
+// GETS INFO FOR PAST CITIES
+$(document).on("click", "#savedbtn", function() {
+    var savedbtn = $(this).text();
+    // console.log(savedbtn);
 
-});
-
-
+    weatherINFO(savedbtn);
+    daysForecastAPI(savedbtn);
+})
