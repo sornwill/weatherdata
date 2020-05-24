@@ -6,7 +6,7 @@
     5 days. Cities previously searched will be stored and render again upon refresh. 
 
 # - LINK
-[weather data]https://sornwill.github.io/weatherdata/
+[weather data](https://sornwill.github.io/weatherdata)
 
 # - SCREENSHOTS
 
